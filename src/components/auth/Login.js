@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Input from "../common/Input";
-import validateInputForm from "../validators/validateInputForm";
+import validateLoginForm from "../validators/validateLoginForm";
 import { isEmpty } from "../utils/Utils";
 
 class Login extends Component {
@@ -18,7 +18,7 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { account } = this.state;
-    const errors = validateInputForm(account);
+    const errors = validateLoginForm(account);
     this.setState({ errors });
     if (!isEmpty(errors)) return;
 
