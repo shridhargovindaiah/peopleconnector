@@ -2,6 +2,50 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
+  let guestLink = "",
+    userLinks = "";
+  guestLink = (
+    <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+        <Link className="nav-link" to="/register">
+          Sign Up
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/login">
+          Login
+        </Link>
+      </li>
+    </ul>
+  );
+
+  userLinks = (
+    <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+        <Link className="nav-link" to="/feed">
+          Post Feed
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/dashboard">
+          Dashboard
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/logout">
+          <img
+            className="rounded-circle"
+            style={{ width: "25px", marginRight: "5px" }}
+            src="https://www.gravatar.com/avatar/anything?s=200&d=mm"
+            alt="Login Profile"
+            title="You must have a Gravatar connected to your email to display an image"
+          />{" "}
+          Logout
+        </Link>
+      </li>
+    </ul>
+  );
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
       <div className="container">
@@ -26,19 +70,7 @@ const Navbar = props => {
               </Link>
             </li>
           </ul>
-
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/register">
-                Sign Up
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-          </ul>
+          {sessionStorage.auth === "true" ? userLinks : guestLink}
         </div>
       </div>
     </nav>

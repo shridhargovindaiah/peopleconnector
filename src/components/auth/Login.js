@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Input from "../common/Input";
 import validateLoginForm from "../validators/validateLoginForm";
 import { isEmpty } from "../utils/Utils";
@@ -24,6 +25,8 @@ class Login extends Component {
 
     //Submit to server
     console.log("Submitted!!");
+    sessionStorage.setItem("auth", true);
+    this.props.history.push("/dashboard");
   };
 
   render() {
@@ -66,4 +69,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

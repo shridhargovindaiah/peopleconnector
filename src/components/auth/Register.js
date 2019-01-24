@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Input from "../common/Input";
 import validateRegisterForm from "../validators/validateRegisterForm";
 import { isEmpty } from "../utils/Utils";
@@ -13,6 +14,10 @@ class Register extends Component {
     },
     errors: {}
   };
+
+  componentDidMount() {
+    sessionStorage.setItem("auth", false);
+  }
 
   handleChange = e => {
     const register = { ...this.state.register };
@@ -29,6 +34,7 @@ class Register extends Component {
 
     //Submit to server
     console.log("Submitted!!");
+    this.props.history.push("/login");
   };
 
   render() {
@@ -88,4 +94,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);

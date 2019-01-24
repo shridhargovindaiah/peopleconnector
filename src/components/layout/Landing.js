@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Landing = props => {
+  sessionStorage.setItem("auth", false);
   return (
     <div className="landing">
       <div className="dark-overlay landing-inner text-light">
