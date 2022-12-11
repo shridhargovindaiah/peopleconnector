@@ -50,7 +50,7 @@ const Navbar = props => {
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          DevConnector
+          Ruga-X
         </Link>
         <button
           className="navbar-toggler"
@@ -66,7 +66,7 @@ const Navbar = props => {
             <li className="nav-item">
               <Link className="nav-link" to="/profiles">
                 {" "}
-                Developers
+                
               </Link>
             </li>
           </ul>
